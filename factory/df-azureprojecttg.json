@@ -1,0 +1,9 @@
+{
+	"name": "df-azureprojecttg",
+	"location": "norwayeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b5b84773-dfed-4940-90a6-a45d84707b4a",
+		"tenantId": "a0662dc1-d8f1-4585-b0bb-97560f480779"
+	}
+}
