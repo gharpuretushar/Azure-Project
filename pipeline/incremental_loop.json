@@ -318,6 +318,37 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "alerts",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Failed",
+							"Skipped",
+							"Succeeded",
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod-31.norwayeast.logic.azure.com:443/workflows/239f341c2ba24713bedd9e29bb54a7de/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=tyAl-D3fI0ZriMDcXI2xdj1uPb2qjeqltLhbDCW0EUM",
+					"body": {
+						"value": "{\n    \"pipeline_name\" : \"@{pipeline().Pipeline}\",\n    \"pipeline_runId\" : \"@{pipeline().RunId}\"\n\n}",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
